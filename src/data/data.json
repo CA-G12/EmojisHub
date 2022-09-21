@@ -1,0 +1,135 @@
+[
+    {
+        "name": "smileys_and_people",
+        "icon": "fa-light fa-face-smile",
+        "subcategories": [
+            {
+                "name": "cat_face"
+            },
+            {
+                "name": "clothing"
+            },
+            {
+                "name": "creature_face"
+            },
+            {
+                "name": "emotion"
+            },
+            {
+                "name": "face_negative"
+            },
+            {
+                "name": "face_neutral"
+            },
+            {
+                "name": "face_positive"
+            },
+            {
+                "name": "face_role"
+            },
+            {
+                "name": "face_sick"
+            },
+            {
+                "name": "family"
+            },
+            {
+                "name": "monkey_face"
+            },
+            {
+                "name": "person"
+            },
+            {
+                "name": "person_activity"
+            },
+            {
+                "name": "person_gesture"
+            },
+            {
+                "name": "person_role"
+            },
+            {
+                "name": "skin_tone"
+            },
+            {
+                "name": "body"
+            }
+        ]
+    },
+    {
+        "name": "food_and_drink",
+        "icon": "fa-light fa-burger-soda",
+        "subcategories": [
+            {
+                "name": "dishware"
+            },
+            {
+                "name": "drink"
+            },
+            {
+                "name": "food_asian"
+            },
+            {
+                "name": "food_fruit"
+            },
+            {
+                "name": "food_prepared"
+            },
+            {
+                "name": "food_sweat"
+            },
+            {
+                "name": "food_vegetable"
+            }
+        ]
+    },
+    {
+        "name": "animals_and_nature",
+        "icon": "fa-light fa-dog",
+        "subcategories": [
+            {
+                "name": "animal_amphibian"
+            },
+            {
+                "name": "animal_bird"
+            },
+            {
+                "name": "animal_bug"
+            },
+            {
+                "name": "animal_mammal"
+            },
+            {
+                "name": "animal_marine"
+            },
+            {
+                "name": "animal_reptile"
+            },
+            {
+                "name": "plant_flower"
+            },
+            {
+                "name": "plant_other"
+            }
+        ]
+    },
+    {
+        "name": "travel_and_places",
+        "icon": "fa-light fa-location-arrow"
+    },
+    {
+        "name": "activities"
+    },
+    {
+        "name": "objects",
+        "icon": "fa-light fa-object-intersect"
+    },
+    {
+        "name": "symbols",
+        "icon": "fa-light fa-symbols"
+    },
+    {
+        "name": "flags",
+        "icon": "fa-light fa-flag"
+    }
+]
