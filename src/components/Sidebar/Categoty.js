@@ -44,19 +44,29 @@ export default class Category extends React.Component {
                 item={child}
                 updateState={updateState}
                 catName={catName}
+                sub = {true}
               />
             ))}
           </div>
         </div>
       );
     }
-    // console.log(this.props.updateState)
     return (
       <h3
         aria-hidden="true"
         className="sidebar-item plain"
         onClick={() => {
-          updateState({ selectedGroup: item.name, selectedCategory: catName });
+          if(this.props.sub){
+          updateState({
+            selectedGroup: item.name,
+            selectedCategory: this.props.catName,
+          });}
+          else{
+            updateState({
+              selectedGroup: item.name,
+              selectedCategory:item.name,
+            });
+          }
         }}
       >
         {/* {this.props.item.icon && <i className={this.props.item.icon}></i>} */}
