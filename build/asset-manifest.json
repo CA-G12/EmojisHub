@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/EmojisHub/static/css/main.96dcbb7e.css",
+    "main.js": "/EmojisHub/static/js/main.26ac3b1a.js",
+    "index.html": "/EmojisHub/index.html",
+    "main.96dcbb7e.css.map": "/EmojisHub/static/css/main.96dcbb7e.css.map",
+    "main.26ac3b1a.js.map": "/EmojisHub/static/js/main.26ac3b1a.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.96dcbb7e.css",
+    "static/js/main.26ac3b1a.js"
+  ]
+}
