@@ -1,1 +1,1 @@
-# &#128152 EmojisHub
+# EmojisHub
