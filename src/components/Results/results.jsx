@@ -45,6 +45,8 @@ class Results extends Component {
         getAll().then((response) => {
           this.setState({ data: response });
         });
+      } else if (category === "favourite") {
+        this.setState({ data: this.state.favourites });
       } else if (category && group) {
         getAllInGroup(group).then((response) =>
           this.setState({ data: response })

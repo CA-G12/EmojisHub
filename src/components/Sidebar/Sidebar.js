@@ -11,7 +11,7 @@ function Sidebar({ updateState }) {
         aria-hidden="true"
         className="sidebar-item fav"
         onClick={() => {
-          updateState({ selectedCategory: 'favourite' });
+          updateState({ selectedCategory: 'favourite', selectedGroup: '' });
         }}
       >
         Favourites
