@@ -102,8 +102,10 @@ li {
 .sidebar-item:hover {
   background-color: rgba(255, 255, 255, 0.1);
 }
-.sidebar-item .logo {
-  font-size: smaller;
+.logo {
+  font-family: 'IBM Plex Mono', monospace ;
+  font-size: 36px;
+ color: whitesmoke;
 }
 .sidebar-item .fav {
   font-size: smaller;
