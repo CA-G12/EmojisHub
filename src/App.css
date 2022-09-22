@@ -180,7 +180,7 @@ li {
   margin-right: 0.3rem;
   /* color : orange ; */
   /* background-color: #ac94ffd2; */
-  background-color: rgba(255, 166, 0, 0.804);
+  background-color: #ffa600cd;
   border-radius: 2px;
 }
 
@@ -221,6 +221,7 @@ li {
 .emoji-tools .tool-tip-text {
   visibility: hidden;
   width: 90px;
+
   background-color: #555555c8;
   color: #fff;
   text-align: center;

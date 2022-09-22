@@ -10,33 +10,55 @@ class Emoji extends Component {
         visibility: 'hidden',
         opacity: 0,
       },
+      favorite: {
+        value: false,
+        style: {
+          classes: 'fa-regular fa-heart',
+          color: '#FFF'
+        }
+      }
     };
 
     this.handleCopy = this.handleCopy.bind(this);
+    this.handleFavorite = this.handleFavorite.bind(this);
+
   }
 
   handleCopy(event) {
     let copied;
     if (event.target.dataset.htmlCode) {
       copied = event.target.dataset.htmlCode;
-    } else {
+    } else if (event.target.dataset.readme) {
+
+      copied = event.target.dataset.readme;
+    }
+    else {
       copied = event.target.dataset.unicode;
     }
     navigator.clipboard.writeText(copied);
+
     this.setState({
       style: {
         visibility: 'visible',
-        opacity: 1,
-      },
+        opacity: 1
+      }
     });
     setTimeout(() => {
       this.setState({
         style: {
           visibility: 'hidden',
-          opacity: 0,
-        },
-      });
-    }, '1000');
+          opacity: 0
+        }
+      })
+    }, '1000')
+  }
+
+  handleFavorite() {
+    if (this.state.favorite.value) {
+      this.setState({ favorite: { value: false, style: { classes: 'fa-regular fa-heart', color: '#FFF' } } })
+    } else {
+      this.setState({ favorite: { value: true, style: { classes: 'fa-solid fa-heart', color: '#ffa600cd' } } })
+    }
   }
 
   render() {
@@ -70,7 +92,13 @@ class Emoji extends Component {
             data-unicode={this.props.info.unicode}
             title="Unicode"
           />
-          <i className="fa-regular fa-heart" title="Favorite" />
+          <i onClick={this.handleCopy} id='github' data-readme={`amp;${this.props.info.htmlCode[0]}`}
+            className="fa-brands fa-github" title='Readme file' />
+
+          <i onClick={this.handleFavorite} style={{ color: this.state.favorite.style.color }}
+            className={this.state.favorite.style.classes} title='Favorite' />
+
+
           <span
             style={{
               visibility: this.state.style.visibility,
@@ -79,7 +107,7 @@ class Emoji extends Component {
             className="tool-tip-text"
             id="myTooltip"
           >
-            Copied ✅
+            Copied✅
           </span>
         </div>
       </li>
@@ -88,3 +116,6 @@ class Emoji extends Component {
 }
 
 export default Emoji;
+
+
+
