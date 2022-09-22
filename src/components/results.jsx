@@ -19,6 +19,7 @@ class Results extends Component {
         }
         this.setState({ loading: false });
     }
+  
 
     render() {
         return (
