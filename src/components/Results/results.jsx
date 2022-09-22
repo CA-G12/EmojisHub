@@ -1,12 +1,10 @@
-import React, { Component } from 'react';
-import Emoji from './emoji';
+import React, { Component } from "react";
+import Emoji from "./emoji";
 import {
   getAll,
-  getRandomInCategory,
-  getRandomInGroup,
-    getAllInCategory,
+  getAllInCategory,
   getAllInGroup,
-} from '../../helpers/requests';
+} from "../../helpers/requests";
 
 class Results extends Component {
   constructor(props) {
@@ -14,37 +12,55 @@ class Results extends Component {
     this.state = {
       data: null,
       loading: true,
+      favourites: [],
     };
   }
+  addToFav = (emoji) => {
+    const favArray = JSON.parse(localStorage.getItem("fav")) || [];
+    favArray.push(emoji);
+    localStorage.setItem("fav", JSON.stringify(favArray));
+    this.setState((prevState) => ({
+      favourites: JSON.parse(localStorage.getItem("fav")),
+    }));
+  };
+  removeFromFav = (emoji) => {
+    const favArray = JSON.parse(localStorage.getItem("fav")).filter(
+      (e) => e.htmlCode[0] !== emoji.htmlCode[0]
+    );
+    localStorage.setItem("fav", JSON.stringify(favArray));
+    this.setState({ favourites: favArray });
+  };
 
   componentDidMount() {
-    // const { category, group } = this.props;
+    localStorage.setItem("fav", JSON.stringify(this.state.favourites));
     getAll().then((response) => {
-        this.setState({ data: response })});
+      this.setState({ data: response });
+    });
     this.setState({ loading: false });
   }
   componentDidUpdate(prevProps, prevState) {
     const { category, group } = this.props;
-    if(prevProps !== this.props){
-    if (category === 'All') {
-      getAll().then((response) => {
-        this.setState({ data: response })});
-    } else if (category && group) {
-      getAllInGroup(group).then((response) =>
-        this.setState({ data: response })
-      );
-    } else if (group) {
-      getAllInGroup(group).then((response) =>
-        this.setState({ data: response })
-      );
+    if (prevProps !== this.props) {
+      if (category === "All") {
+        getAll().then((response) => {
+          this.setState({ data: response });
+        });
+      } else if (category && group) {
+        getAllInGroup(group).then((response) =>
+          this.setState({ data: response })
+        );
+      } else if (group) {
+        getAllInGroup(group).then((response) =>
+          this.setState({ data: response })
+        );
+      } else {
+        getAllInCategory(category).then((response) =>
+          this.setState({ data: response })
+        );
+      }
+      this.setState({ loading: false });
     } else {
-      getAllInCategory(category).then((response) =>
-        this.setState({ data: response })
-      );
-    }
-    this.setState({ loading: false });}
-    else{
-        return;
+      return;
     }
   }
 
@@ -54,10 +70,10 @@ class Results extends Component {
     return (
       <section className="results">
         <h1 className="result-header">
-          {category || ''}/{group || ''}
+          {category || ""}/{group || ""}
         </h1>
-        <p className={category === 'All' ? 'hint-text' : ''}>
-          {category === 'All' ? 'Choose category to see specific emojis.' : ''}
+        <p className={category === "All" ? "hint-text" : ""}>
+          {category === "All" ? "Choose category to see specific emojis." : ""}
         </p>
         <p className="hint-text">
           <span className="orange-hint">
@@ -78,7 +94,20 @@ class Results extends Component {
             <h3>Loading....</h3>
           ) : (
             data.map((emoji) => (
-              <Emoji category={category} info={emoji} key={emoji.htmlCode} />
+              <Emoji
+                category={category}
+                info={emoji}
+                key={emoji.htmlCode}
+                addToFav={this.addToFav}
+                removeFromFav={this.removeFromFav}
+                isFav={
+                  this.state.favourites
+                    .map((e) => e.htmlCode[0])
+                    .indexOf(emoji.htmlCode[0]) === -1
+                    ? false
+                    : true
+                }
+              />
             ))
           )}
         </ul>
