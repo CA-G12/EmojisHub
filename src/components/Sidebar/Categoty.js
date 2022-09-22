@@ -1,60 +1,67 @@
-import React from "react";
+import React from 'react';
 
 export default class Category extends React.Component {
-  state = {
-    open: false,
-  };
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      open: false,
+    };
+  }
+
   render() {
-    const catName = this.props.item.name;
-    if (this.props.item.subcategories) {
+    const { item, updateState } = this.props;
+    const { open } = this.state;
+    const catName = item.name;
+    if (item.subcategories) {
       return (
-        <div className={this.state.open ? "sidebar-item open" : "sidebar-item"}>
+        <div className={open ? 'sidebar-item open' : 'sidebar-item'}>
           <div className="sidebar-title">
             <span
+              aria-hidden="true"
               onClick={() => {
-                this.props.updateState({
-                  selectedCategory: this.props.item.name,
+                updateState({
+                  selectedCategory: item.name,
+                  selectedGroup: '',
                 });
-                this.props.updateState({ selectedGroup: "" });
               }}
             >
               {/* {this.props.item.icon && <i className='fa-light fa-face-smile'></i>} */}
-              {this.props.item.name}
+              {item.name}
             </span>
             <i
+              aria-hidden="true"
               className="fa-solid fa-chevron-down toggle-btn"
               onClick={() => {
-                this.setState({ open: !this.state.open });
+                this.setState({ open: !open });
               }}
-            ></i>
+            />
           </div>
           <div className="sidebar-content">
-            {this.props.item.subcategories.map((child, index) => (
+            {item.subcategories.map((child) => (
               <Category
-                key={index}
+                key={child.name}
                 item={child}
-                updateState={this.props.updateState}
+                updateState={updateState}
                 catName={catName}
               />
             ))}
           </div>
         </div>
       );
-    } else {
-      // console.log(this.props.updateState)
-      return (
-        <h3
-          className="sidebar-item plain"
-          onClick={() => {
-            console.log(this.props.updateState);
-            this.props.updateState({ selectedGroup: this.props.item.name });
-            this.props.updateState({ selectedCategory: this.props.catName });
-          }}
-        >
-          {/* {this.props.item.icon && <i className={this.props.item.icon}></i>} */}
-          {this.props.item.name}
-        </h3>
-      );
     }
+    // console.log(this.props.updateState)
+    return (
+      <h3
+        aria-hidden="true"
+        className="sidebar-item plain"
+        onClick={() => {
+          updateState({ selectedGroup: item.name, selectedCategory: catName });
+        }}
+      >
+        {/* {this.props.item.icon && <i className={this.props.item.icon}></i>} */}
+        {item.name}
+      </h3>
+    );
   }
 }
