@@ -12,7 +12,7 @@ class Results extends Component {
     this.state = {
       data: null,
       loading: true,
-      favourites: [],
+      favourites: JSON.parse(localStorage.getItem("fav")) || [],
     };
   }
   addToFav = (emoji) => {
@@ -20,7 +20,7 @@ class Results extends Component {
     favArray.push(emoji);
     localStorage.setItem("fav", JSON.stringify(favArray));
     this.setState((prevState) => ({
-      favourites: JSON.parse(localStorage.getItem("fav")),
+      favourites: favArray,
     }));
   };
   removeFromFav = (emoji) => {
@@ -32,7 +32,6 @@ class Results extends Component {
   };
 
   componentDidMount() {
-    localStorage.setItem("fav", JSON.stringify(this.state.favourites));
     getAll().then((response) => {
       this.setState({ data: response });
     });
@@ -40,6 +39,12 @@ class Results extends Component {
   }
   componentDidUpdate(prevProps, prevState) {
     const { category, group } = this.props;
+    if (
+      category === "favourite" &&
+      this.state.favourites !== prevState.favourites
+    ) {
+      this.setState({ data: this.state.favourites });
+    }
     if (prevProps !== this.props) {
       if (category === "All") {
         getAll().then((response) => {
@@ -72,7 +77,15 @@ class Results extends Component {
     return (
       <section className="results">
         <h1 className="result-header">
-          {category || ""}/{group || ""}
+          {category
+            ? category[0].toUpperCase() +
+              category.substring(1).split("_").join(" ")
+            : ""}
+          {group
+            ? "  >>>  " +
+              group[0].toUpperCase() +
+              group.substring(1).split("_").join(" ")
+            : ""}
         </h1>
         <p className={category === "All" ? "hint-text" : ""}>
           {category === "All" ? "Choose category to see specific emojis." : ""}

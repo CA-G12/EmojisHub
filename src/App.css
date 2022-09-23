@@ -105,6 +105,7 @@ li {
   transition: background-color 0.15s;
   border-radius: 5px;
   font-size: 15px;
+  cursor: pointer;
 }
 
 .sidebar-item:hover {
@@ -122,6 +123,7 @@ li {
 .fav {
   font-size: smaller;
   font-size: 19px;
+  color: #ffc83d
 }
 
 .sidebar-title,
@@ -133,6 +135,7 @@ li {
 
 .sidebar-title {
   text-indent: 10px;
+  cursor: pointer;
 }
 
 .sidebar-title span i {
@@ -163,6 +166,7 @@ li {
   color: #fff;
   text-decoration: none;
   text-indent: 10px;
+  cursor: pointer;
 }
 
 .sidebar-item.plain:hover {
@@ -207,9 +211,7 @@ li {
 .hint-text .orange-hint {
   padding: 0.2rem;
   margin-right: 0.3rem;
-  /* color : orange ; */
-  /* background-color: #ac94ffd2; */
-  background-color: #ffa600cd;
+  background-color: #ffc83d;
   border-radius: 2px;
 }
 
@@ -222,8 +224,8 @@ li {
 }
 
 .emoji {
-  width: 12%;
-  height: 8rem;
+  width: max-content;
+  padding: 10px;
   background-color: rgba(159, 158, 158, 0.628);
   border-radius: 10px;
   display: flex;
@@ -233,7 +235,8 @@ li {
 }
 
 .emoji-img {
-  font-size: 4rem;
+  font-size: 3rem;
+  padding-bottom: 1rem;
 }
 .emoji-img.custom img{
   font-size: 12px;
@@ -241,7 +244,6 @@ li {
   height: auto;
 }
 .emoji-tools {
-  width: 80%;
   display: flex;
   justify-content: space-around;
   position: relative;
@@ -249,6 +251,7 @@ li {
 
 .emoji-tools i {
   cursor: pointer;
+  padding: 0 5px;
 }
 
 .emoji-tools .tool-tip-text {

@@ -13,7 +13,7 @@ class Emoji extends Component {
       favorite: {
         value: this.props.isFav,
         style: this.props.isFav
-          ? { classes: "fa-solid fa-heart", color: "#ffa600cd" }
+          ? { classes: "fa-solid fa-heart", color: "#E72B11" }
           : { classes: "fa-regular fa-heart", color: "#FFF" },
       },
     };
@@ -57,16 +57,15 @@ class Emoji extends Component {
           style: { classes: "fa-regular fa-heart", color: "#FFF" },
         },
       });
-      this.props.removeFromFav(this.props.info)
+      this.props.removeFromFav(this.props.info);
     } else {
       this.setState({
         favorite: {
           value: true,
-          style: { classes: "fa-solid fa-heart", color: "#ffa600cd" },
+          style: { classes: "fa-solid fa-heart", color: "#E72B11" },
         },
       });
-      this.props.addToFav(this.props.info)
-
+      this.props.addToFav(this.props.info);
     }
   }
 
@@ -78,20 +77,32 @@ class Emoji extends Component {
         data-html-code={this.props.info.htmlCode}
       >
         {this.props.category === "flags" ? (
-          <div className="emoji-img custom" >
-            <img src={findFlagUrlByCountryName(`${this.props.info.name[0].toUpperCase()}${this.props.info.name.slice(1)}`.split(' ').join('_'))} alt='flag' className="emoji-img" />
+          <div className="emoji-img custom">
+            <img
+              src={findFlagUrlByCountryName(
+                `${this.props.info.name[0].toUpperCase()}${this.props.info.name.slice(
+                  1
+                )}`
+                  .split(" ")
+                  .join("_")
+              )}
+              alt="flag"
+              className="emoji-img"
+            />
             {/* {console.log(`${this.props.info.name[0].toUpperCase()}${this.props.info.name.slice(1)}`)} */}
             {console.log(this.props.info)}
           </div>
         ) : (
-          <div className="emoji-img">{parse(this.props.info.htmlCode.join(''))}</div>
+          <div className="emoji-img">
+            {parse(this.props.info.htmlCode.join(""))}
+          </div>
         )}
         <div className="emoji-tools">
           <i
             aria-hidden="true"
             onClick={this.handleCopy}
             className="fa-solid fa-hashtag"
-            data-html-code={this.props.info.htmlCode}
+            data-html-code={this.props.info.htmlCode.join("")}
             title="HTML code"
           />
           <i
