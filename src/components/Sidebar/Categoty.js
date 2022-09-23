@@ -27,7 +27,7 @@ export default class Category extends React.Component {
               }}
             >
               {/* {this.props.item.icon && <i className='fa-light fa-face-smile'></i>} */}
-              {item.name}
+              {item.name[0].toUpperCase()+ item.name.substring(1).split('_').join(' ')}
             </span>
             <i
               aria-hidden="true"
@@ -70,7 +70,7 @@ export default class Category extends React.Component {
         }}
       >
         {/* {this.props.item.icon && <i className={this.props.item.icon}></i>} */}
-        {item.name}
+        {item.name.split('_').join(' ')[0].toUpperCase()+ item.name.split('_').join(' ').substring(1)}
       </h3>
     );
   }
