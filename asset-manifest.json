@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/EmojisHub/static/css/main.147f7d5b.css",
-    "main.js": "/EmojisHub/static/js/main.26ac3b1a.js",
+    "main.css": "/EmojisHub/static/css/main.f45ef90a.css",
+    "main.js": "/EmojisHub/static/js/main.b2afb25e.js",
     "index.html": "/EmojisHub/index.html",
-    "main.147f7d5b.css.map": "/EmojisHub/static/css/main.147f7d5b.css.map",
-    "main.26ac3b1a.js.map": "/EmojisHub/static/js/main.26ac3b1a.js.map"
+    "main.f45ef90a.css.map": "/EmojisHub/static/css/main.f45ef90a.css.map",
+    "main.b2afb25e.js.map": "/EmojisHub/static/js/main.b2afb25e.js.map"
   },
   "entrypoints": [
-    "static/css/main.147f7d5b.css",
-    "static/js/main.26ac3b1a.js"
+    "static/css/main.f45ef90a.css",
+    "static/js/main.b2afb25e.js"
   ]
 }
