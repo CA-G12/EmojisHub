@@ -10,6 +10,7 @@ html,
 body {
   height: 100vh;
 }
+
 body {
   font-family: 'IBM Plex Mono', monospace;
   font-size: 16px;
@@ -39,9 +40,11 @@ li {
   justify-content: center;
   text-align: center;
 }
+
 .title {
   font-size: 3em;
 }
+
 .info {
   font-size: 1.1em;
   letter-spacing: 1px;
@@ -49,6 +52,7 @@ li {
   margin: 1.5em;
   color: rgb(224, 224, 224);
 }
+
 .btn {
   margin: 0 auto;
   border: none;
@@ -68,7 +72,7 @@ li {
   width: 260px;
   flex-shrink: 0;
   background-color: rgba(22, 22, 22, 1);
-  min-height: 100vh ;
+  min-height: 100vh;
   overflow: auto;
   /* position: fixed; */
 }
@@ -80,17 +84,21 @@ li {
   border-radius: 5px;
   justify-content: space-between;
 }
+
 .categories i {
   display: inline-block;
   width: 1.5em;
 }
+
 .categories .toggle-btn {
   cursor: pointer;
   transition: transform 0.3s;
 }
-.categories.open > .categories .toggle-btn {
+
+.categories.open>.categories .toggle-btn {
   transform: rotate(180deg);
 }
+
 .sidebar-item {
   padding: 0.75em 1em;
   display: block;
@@ -102,43 +110,52 @@ li {
 .sidebar-item:hover {
   background-color: rgba(255, 255, 255, 0.1);
 }
+
 .logo {
-  font-family: 'IBM Plex Mono', monospace ;
+  font-family: 'IBM Plex Mono', monospace;
   font-size: 30px;
- color: whitesmoke;
- border-bottom: 2px dashed ;
- margin-bottom: 1.5rem;
+  color: whitesmoke;
+  border-bottom: 2px dashed;
+  margin-bottom: 1.5rem;
 }
- .fav {
+
+.fav {
   font-size: smaller;
   font-size: 19px;
 }
+
 .sidebar-title,
 .categories h2 {
   display: flex;
   font-size: 1.2em;
   justify-content: space-between;
 }
-.sidebar-title{
+
+.sidebar-title {
   text-indent: 10px;
 }
+
 .sidebar-title span i {
   display: inline-block;
   width: 1.5em;
 }
+
 .sidebar-title .toggle-btn {
   cursor: pointer;
   transition: transform 0.3s;
 }
-.sidebar-item.open > .sidebar-title .toggle-btn {
+
+.sidebar-item.open>.sidebar-title .toggle-btn {
   transform: rotate(180deg);
 }
+
 .sidebar-content {
   padding-top: 0.25em;
   height: 0;
   overflow: hidden;
 }
-.sidebar-item.open > .sidebar-content {
+
+.sidebar-item.open>.sidebar-content {
   height: auto;
 }
 
@@ -147,13 +164,16 @@ li {
   text-decoration: none;
   text-indent: 10px;
 }
+
 .sidebar-item.plain:hover {
   text-decoration: underline;
 }
+
 .sidebar-item.plain i {
   display: inline-block;
   width: 1.7em;
 }
+
 .sidebar {
   border-right: 2px dashed #eee;
   width: 18%;
@@ -215,7 +235,11 @@ li {
 .emoji-img {
   font-size: 4rem;
 }
-
+.emoji-img.custom img{
+  font-size: 12px;
+  width: 60px;
+  height: auto;
+}
 .emoji-tools {
   width: 80%;
   display: flex;

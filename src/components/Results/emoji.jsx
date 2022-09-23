@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import parse from "html-react-parser";
-
+// import * as Icon from 'react-bootstrap-icons';
+import { findFlagUrlByCountryName } from "country-flags-svg";
 class Emoji extends Component {
   constructor(props) {
     super(props);
@@ -77,14 +78,14 @@ class Emoji extends Component {
         data-html-code={this.props.info.htmlCode}
       >
         {this.props.category === "flags" ? (
-          <div className="emoji-img">
-            {this.props.info.htmlCode.length > 1
-              ? parse(this.props.info.htmlCode[1])
-              : parse(this.props.info.htmlCode[0])}
+          <div className="emoji-img custom" >
+            <img src={findFlagUrlByCountryName(`${this.props.info.name[0].toUpperCase()}${this.props.info.name.slice(1)}`.split(' ').join('_'))} alt='flag' className="emoji-img" />
+            {/* {console.log(`${this.props.info.name[0].toUpperCase()}${this.props.info.name.slice(1)}`)} */}
+            {console.log(this.props.info)}
           </div>
         ) : (
-          <div className="emoji-img">{parse(this.props.info.htmlCode[0])}</div>
-        )}{" "}
+          <div className="emoji-img">{parse(this.props.info.htmlCode.join(''))}</div>
+        )}
         <div className="emoji-tools">
           <i
             aria-hidden="true"
