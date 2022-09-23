@@ -25,8 +25,8 @@ class Emoji extends Component {
     let copied;
     if (event.target.dataset.htmlCode) {
       copied = event.target.dataset.htmlCode;
-    } else if (event.target.dataset.readme) {
-      copied = event.target.dataset.readme;
+    } else if (event.target.dataset.emoji) {
+      copied = parse(event.target.dataset.emoji);
     } else {
       copied = event.target.dataset.unicode;
     }
@@ -102,12 +102,10 @@ class Emoji extends Component {
           />
           <i
             onClick={this.handleCopy}
-            id="github"
-            data-readme={`amp;${this.props.info.htmlCode[0]}`}
-            className="fa-brands fa-github"
+            data-emoji={this.props.info.htmlCode[0]}
+            className="fa-regular fa-copy"
             title="Readme file"
           />
-
           <i
             onClick={this.handleFavorite}
             style={{ color: this.state.favorite.style.color }}

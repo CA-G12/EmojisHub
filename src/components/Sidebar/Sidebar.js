@@ -6,7 +6,7 @@ import Category from './Categoty';
 function Sidebar({ updateState }) {
   return (
     <div className="sidebar">
-      <h2 className="sidebar-item logo">EmojiHub &#128526;</h2>
+      <h2 className="sidebar-item logo">EmojiHub&#128578; </h2>
       <h2
         aria-hidden="true"
         className="sidebar-item fav"

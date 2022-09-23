@@ -96,7 +96,7 @@ li {
   display: block;
   transition: background-color 0.15s;
   border-radius: 5px;
-  /* justify-content:space-between; */
+  font-size: 15px;
 }
 
 .sidebar-item:hover {
@@ -104,17 +104,23 @@ li {
 }
 .logo {
   font-family: 'IBM Plex Mono', monospace ;
-  font-size: 36px;
+  font-size: 30px;
  color: whitesmoke;
+ border-bottom: 2px dashed ;
+ margin-bottom: 1.5rem;
 }
-.sidebar-item .fav {
+ .fav {
   font-size: smaller;
+  font-size: 19px;
 }
 .sidebar-title,
 .categories h2 {
   display: flex;
   font-size: 1.2em;
   justify-content: space-between;
+}
+.sidebar-title{
+  text-indent: 10px;
 }
 .sidebar-title span i {
   display: inline-block;
@@ -139,6 +145,7 @@ li {
 .sidebar-item.plain {
   color: #fff;
   text-decoration: none;
+  text-indent: 10px;
 }
 .sidebar-item.plain:hover {
   text-decoration: underline;
