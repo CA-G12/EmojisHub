@@ -87,6 +87,10 @@ class Results extends Component {
           </span>
           to copy unicode.
           <span className="orange-hint">
+            <i className="fa-regular fa-copy"></i>
+          </span>
+          copy emoji.
+          <span className="orange-hint">
             <i className="fa-regular fa-heart" />
           </span>
           to add icon to favorite list.
