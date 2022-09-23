@@ -30,44 +30,45 @@ class Results extends Component {
     localStorage.setItem("fav", JSON.stringify(favArray));
     this.setState({ favourites: favArray });
   };
+  getRequiredData() {
+    const { category, group } = this.props;
+    if (category === "All") {
+      this.setState({ loading: true });
+      console.log("in all", this.state.loading);
 
+      getAll()
+        .then((response) => {
+          this.setState({ data: response });
+        })
+        .then(() => this.setState({ loading: false }));
+    } else if (category === "favourite") {
+      this.setState({ data: this.state.favourites });
+    } else if (category && group) {
+      this.setState({ loading: true });
+      getAllInGroup(group)
+        .then((response) => this.setState({ data: response }))
+        .then(() => this.setState({ loading: false }));
+    } else {
+      this.setState({ loading: true });
+      getAllInCategory(category)
+        .then((response) => this.setState({ data: response }))
+        .then(() => this.setState({ loading: false }));
+    }
+  }
   componentDidMount() {
-    getAll().then((response) => {
-      this.setState({ data: response });
-    });
-    this.setState({ loading: false });
+    this.getRequiredData();
   }
   componentDidUpdate(prevProps, prevState) {
-    const { category, group } = this.props;
+    const { category } = this.props;
+
+    if (prevProps !== this.props) {
+      this.getRequiredData();
+    }
     if (
       category === "favourite" &&
       this.state.favourites !== prevState.favourites
     ) {
       this.setState({ data: this.state.favourites });
-    }
-    if (prevProps !== this.props) {
-      if (category === "All") {
-        getAll().then((response) => {
-          this.setState({ data: response });
-        });
-      } else if (category === "favourite") {
-        this.setState({ data: this.state.favourites });
-      } else if (category && group) {
-        getAllInGroup(group).then((response) =>
-          this.setState({ data: response })
-        );
-      } else if (group) {
-        getAllInGroup(group).then((response) =>
-          this.setState({ data: response })
-        );
-      } else {
-        getAllInCategory(category).then((response) =>
-          this.setState({ data: response })
-        );
-      }
-      this.setState({ loading: false });
-    } else {
-      return;
     }
   }
 
