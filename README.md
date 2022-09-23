@@ -37,10 +37,10 @@ The last one is to add/remove from favorites.
 
 1. You can click the code drop-down menu above and copy the link to clone the repo or check the coming step!
 2. I am going to make it easy for you, here is the link https://github.com/CA-G12/EmojisHub.git. In your terminal type the following commands:
-`git clone [link]`.
-`cd EmojisHub`
-`npm i` to install the used npm packages.
-`npm start` to start your server.
+* `git clone [link]`.
+* `cd EmojisHub`
+* `npm i` to install the used npm packages.
+* `npm start` to start your server.
 3. Happy coding! ✨
 
 ## 🐱‍💻 Done by
