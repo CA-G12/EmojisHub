@@ -6,7 +6,7 @@ import Category from './Categoty';
 function Sidebar({ updateState }) {
   return (
     <div className="sidebar">
-      <h2 className="sidebar-item logo">EmojiHub&#128578; </h2>
+      <h2 className="sidebar-item logo" onClick={()=> window.location.assign('/')}>EmojiHub&#128578; </h2>
       <h2
         aria-hidden="true"
         className="sidebar-item fav"
@@ -20,7 +20,7 @@ function Sidebar({ updateState }) {
         aria-hidden="true"
         className="sidebar-item fav"
         onClick={() => {
-          updateState({ selectedCategory: 'All' });
+          updateState({ selectedCategory: 'All', selectedGroup:'' });
         }}
       >
         Categories
