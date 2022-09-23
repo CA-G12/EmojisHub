@@ -103,26 +103,26 @@ class Emoji extends Component {
             onClick={this.handleCopy}
             className="fa-solid fa-hashtag"
             data-html-code={this.props.info.htmlCode.join("")}
-            title="HTML code"
+            title="copy HTML code"
           />
           <i
             aria-hidden="true"
             onClick={this.handleCopy}
             className="fa-solid fa-u"
             data-unicode={this.props.info.unicode}
-            title="Unicode"
+            title="copy unicode"
           />
           <i
             onClick={this.handleCopy}
             data-emoji={this.props.info.htmlCode[0]}
             className="fa-regular fa-copy"
-            title="Readme file"
+            title="copy emoji"
           />
           <i
             onClick={this.handleFavorite}
             style={{ color: this.state.favorite.style.color }}
             className={this.state.favorite.style.classes}
-            title="Favorite"
+            title={this.state.favorite.value ? 'delete from favourites' : 'add to favourites'}
           />
 
           <span
